@@ -1,18 +1,22 @@
 #include <iostream>
 using namespace std;
 
+
+
 class MyString
 {
+	friend ostream& operator << (ostream& os, const MyString& object);
+	friend istream& operator >> (istream& os, MyString& object);
 public:
-
 	MyString()
 	{
+		length = 0;
 		str = nullptr;
 	}
-	MyString(const char *str) 
+	MyString(const char* str)
 	{
-		int length = strlen(str);
-		this->str = new char[length+1];
+		length = strlen(str);
+		this->str = new char[length + 1];
 		for (int i = 0; i < length; i++)
 		{
 			this->str[i] = str[i];
@@ -21,8 +25,7 @@ public:
 	}
 	MyString(const MyString& other)
 	{
-		
-		int length = strlen(other.str);
+		length = strlen(other.str);
 		this->str = new char[length + 1];
 		for (int i = 0; i < length; i++)
 		{
@@ -30,12 +33,18 @@ public:
 		}
 		str[length] = '\0';
 	}
+	MyString(MyString&& other)
+	{
+		this->length = other.length;
+		this->str = other.str;
+		other.str = nullptr;
+	}
 	~MyString()
 	{
 		delete[] this->str;
 	}
 
-	MyString& operator = (const char *&str)
+	MyString& operator = (const char*& str)
 	{
 		int length = strlen(str);
 		this->str = new char[length + 1];
@@ -46,14 +55,14 @@ public:
 		this->str[length] = '\0';
 		return *this;
 	}
-	MyString& operator = (const MyString &other)
+	MyString& operator = (const MyString& other)
 	{
 		if (this->str != nullptr)
 		{
 			delete[] this->str;
 		}
-		int length = strlen(other.str);
-		this->str = new char[length+1];
+		length = strlen(other.str);
+		this->str = new char[length + 1];
 		for (int i = 0; i < length; i++)
 		{
 			this->str[i] = other.str[i];
@@ -65,7 +74,8 @@ public:
 	{
 		MyString result;
 		int length = strlen(this->str) + strlen(other.str);
-		result.str = new char[length+1];
+		result.length = length;
+		result.str = new char[length + 1];
 		for (int i = 0, j = 0; i < length; i++)
 		{
 			if (i < strlen(this->str))
@@ -83,12 +93,12 @@ public:
 	}
 	MyString& operator +=(const MyString& other)
 	{
-		
+
 		if (this->str != nullptr)
 		{
 			int length1 = strlen(this->str);
 			int length2 = strlen(other.str);
-			char* str2 = new char[length1+1];
+			char* str2 = new char[length1 + 1];
 
 			for (int i = 0; i < length1; i++)
 			{
@@ -97,25 +107,25 @@ public:
 			str2[length1] = '\0';
 			delete[] str;
 
-			str = new char[length1+length2+1];
+			str = new char[length1 + length2 + 1];
 			int i = 0;
 
 			for (; i < length1; i++)
 			{
 				str[i] = str2[i];
 			}
-			for (int j = 0; j < length2; j++,i++)
+			for (int j = 0; j < length2; j++, i++)
 			{
 				str[i] = other.str[j];
 			}
-			str[length1+length2] = '\0';
+			str[length1 + length2] = '\0';
 			delete[] str2;
 			return *this;
 		}
 		else
 		{
 			int length = strlen(other.str);
-			str = new char[length+1];
+			str = new char[length + 1];
 
 			for (int i = 0; i < length; i++)
 			{
@@ -125,17 +135,55 @@ public:
 			return *this;
 		}
 	}
-
-	void Print()
+	
+	bool operator ==(const MyString& other)
 	{
-		cout << str;
+		if (this->length == other.length)
+		{
+			for (int i = 0; i < length; i++)
+			{
+				if (str[i] != other.str[i])
+					return 0;
+			}
+			return 1;
+		}
+		else
+			return 0;
+	}
+	bool operator !=(const MyString& other)	
+	{
+		return !(this->operator==(other));
 	}
 
+	char& operator [](int index)
+	{
+		return str[index];
+	}
+	int Length()
+	{
+		return length;
+	}
 private:
+	int length;
 	char* str;
 };
+
+ostream& operator << (ostream& os, const MyString& object)
+{
+	os << object.str;
+	return os;
+}
+istream& operator >> (istream& os,MyString& object)
+{
+	os >> object.str;
+	return os;
+}
+
 int main()
 {
-	
+	setlocale(LC_ALL, "ru");
+	MyString pstr = "test37d";
+	MyString qstr = "test35d";
+
 	return 0;
 }
