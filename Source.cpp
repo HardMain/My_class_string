@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
-
 class MyString
 {
 	friend ostream& operator << (ostream& os, const MyString& object);
@@ -170,20 +168,26 @@ private:
 
 ostream& operator << (ostream& os, const MyString& object)
 {
+	setlocale(LC_ALL, "ru");
 	os << object.str;
 	return os;
 }
 istream& operator >> (istream& os,MyString& object)
 {
-	os >> object.str;
+	setlocale(LC_ALL, "ru");
+	if (object.str != nullptr)
+		delete[] object.str;
+
+	char* str = new char[255];
+	os >> str;
+	object.str = str+'\0';
+	object.length = strlen(str);
 	return os;
 }
 
 int main()
 {
-	setlocale(LC_ALL, "ru");
-	MyString pstr = "test37d";
-	MyString qstr = "test35d";
-
+	MyString pstr = "ïïïïïïïğèèè";
+	cout << pstr[4];
 	return 0;
 }

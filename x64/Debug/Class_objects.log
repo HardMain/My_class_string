@@ -1,10 +1,11 @@
 ﻿  Source.cpp
-C:\Users\Владимир\source\repos\Class_objects\Source.cpp(18,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Владимир\source\repos\Class_objects\Source.cpp(28,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Владимир\source\repos\Class_objects\Source.cpp(49,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Владимир\source\repos\Class_objects\Source.cpp(64,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Владимир\source\repos\Class_objects\Source.cpp(76,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Владимир\source\repos\Class_objects\Source.cpp(99,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Владимир\source\repos\Class_objects\Source.cpp(100,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Владимир\source\repos\Class_objects\Source.cpp(127,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(16,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(26,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(47,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(62,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(74,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(97,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(98,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(125,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Владимир\source\repos\Class_objects\Source.cpp(184,29): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
   Class_objects.vcxproj -> C:\Users\Владимир\source\repos\Class_objects\x64\Debug\Class_objects.exe
